@@ -27,7 +27,32 @@ document.addEventListener('keydown', (event) => {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  // Replace this UI-only handoff with the Resend endpoint when the API is wired.
-  form.hidden = true;
-  success.hidden = false;
+  const button = form.querySelector('button[type="submit"]');
+  const errorMessage = form.querySelector('.form-error');
+
+  button.disabled = true;
+  button.firstChild.textContent = 'Sending... ';
+  errorMessage.hidden = true;
+
+  fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(Object.fromEntries(new FormData(form))),
+  })
+    .then(async (response) => {
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || 'Unable to send your request right now.');
+
+      form.reset();
+      form.hidden = true;
+      success.hidden = false;
+    })
+    .catch((error) => {
+      errorMessage.textContent = error.message;
+      errorMessage.hidden = false;
+    })
+    .finally(() => {
+      button.disabled = false;
+      button.firstChild.textContent = 'Request a demo ';
+    });
 });

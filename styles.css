@@ -205,6 +205,8 @@ footer { display: grid; grid-template-columns: 1fr 1fr; min-height: 90px; font: 
 .form-success > span { color: var(--violet); font-size: 30px; }
 .form-success h3 { font-size: 24px; margin: 14px 0 7px; }
 .form-success p { color: #77736b; font-size: 12px; }
+.form-trap { position: absolute; left: -9999px; }
+.form-error { color: #b42318; font-size: 12px; margin: 12px 0 0; }
 
 @media (max-width: 900px) {
   .site-header { position: relative; height: 70px; grid-template-columns: 1fr; }

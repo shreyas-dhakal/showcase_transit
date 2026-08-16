@@ -120,7 +120,7 @@
       <div class="modal-kicker">/ START THE TRANSIT</div>
       <h2 id="demo-title">Let's move your<br><em>website forward.</em></h2>
       <p>Send us the site everyone has learned to work around. We will show you what it can become.</p>
-      <form id="demo-form"><label>Name<input type="text" name="name" placeholder="Your name" required></label><label>Work email<input type="email" name="email" placeholder="you@company.com" required></label><label>Current website<input type="url" name="website" placeholder="https://" required></label><button class="button button-primary" type="submit">Request a demo <span>&#8599;</span></button></form>
+      <form id="demo-form"><label>Name<input type="text" name="name" placeholder="Your name" maxlength="100" required></label><label>Work email<input type="email" name="email" placeholder="you@company.com" maxlength="254" required></label><label>Current website<input type="url" name="website" placeholder="https://" maxlength="500" required></label><label class="form-trap" aria-hidden="true">Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label><button class="button button-primary" type="submit">Request a demo <span>&#8599;</span></button><p class="form-error" role="alert" hidden></p></form>
       <div class="form-success" hidden><span>&#10022;</span><h3>You're on the list.</h3><p>We'll be in touch shortly to find a time.</p></div>
     </div>
   </div>
